@@ -17,5 +17,3 @@ Processor: Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
 |Pandas      |0.25.1 |
 |Scikit-learn|0.20.0 |
 |XGBoost     |0.82   |
-|Matplotlib  |3.0.2  |
-|Scipy       |1.1.0  |
