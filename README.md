@@ -20,6 +20,6 @@ Processor: Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
 
 ### How to start
 1. Fill out `demographics_template.csv` for both training and test set and name them as `train.csv` and `test.csv`.
-2. Perform 10-fold cross validation on the training set and name each training and validation fold as `train_#.csv` and `valid_#.csv`.
+2. Perform 10-fold cross validation on the training set and name each training and validation fold as `train_#.csv` and `valid_#.csv` where # is an integer between 1 and 10.
 3. Run `lasso.R` to obtain feature appearances for each fold and each model.
 4. Run `classification.ipynb` and follow the steps.
