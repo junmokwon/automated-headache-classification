@@ -42,28 +42,28 @@ lasso_loop <- function(fold_index, model_index) {
   x_cat <- x_raw[, !(colnames(x_raw) %in% cont_features)]
 
   if (model_index == 1) {
-    y_migraine <- (y_true == 1)
-    xfactors <- model.matrix(y_migraine~., data=x_cat)
+    y_test <- (y_true == 1)
+    xfactors <- model.matrix(y_test~., data=x_cat)
     x <- as.matrix(data.frame(x_cont, xfactors))
   } else if (model_index == 2) {
     mask = !(y_true %in% c(1))
-    y_migraine <- y_true[mask] == 2
+    y_test <- y_true[mask] == 2
     x_second_cont <- x_cont[mask,]
     x_second_cat <- x_cat[mask,]
-    xfactors <- model.matrix(y_migraine~., data=x_second_cat)
+    xfactors <- model.matrix(y_test~., data=x_second_cat)
     x <- as.matrix(data.frame(x_second_cont, xfactors))
   } else if (model_index == 3) {
     mask = !(y_true %in% c(1, 2))
-    y_migraine <- y_true[mask] == 4
+    y_test <- y_true[mask] == 4
     x_second_cont <- x_cont[mask,]
     x_second_cat <- x_cat[mask,]
-    xfactors <- model.matrix(y_migraine~., data=x_second_cat)
+    xfactors <- model.matrix(y_test~., data=x_second_cat)
     x <- as.matrix(data.frame(x_second_cont, xfactors))
   }
   total.coef <- read.csv(text='occurrence')
   for(i in 1:num_iterations) {
     set.seed(i * 500)
-    cv.lasso <- cv.glmnet(x, y_migraine, family='binomial', nfolds=10, alpha=1, standardize=FALSE)
+    cv.lasso <- cv.glmnet(x, y_test, family='binomial', nfolds=10, alpha=1, standardize=FALSE)
     lasso.coef = predict(cv.lasso, type='coefficients', s=cv.lasso$lambda.1se)
     print(sprintf('[LASSO] iterating %d over %d... [%.2f%s]', i, num_iterations,
                   (i / num_iterations) * 100, '%'))
