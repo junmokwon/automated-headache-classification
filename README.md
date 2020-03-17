@@ -9,7 +9,7 @@ To be filled.
 To be filled.
 
 ### Tested environment
-Operating System: Windows 10 Pro 10.0.17134 Build 17134
+Operating System: Windows 10 Pro 10.0.17134 Build 17134 \
 Processor: Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
 |Package     |Version|
 |------------|-------|
