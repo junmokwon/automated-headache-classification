@@ -11,6 +11,7 @@ To be filled.
 ### Simulation Environment
 - Operating System: Windows 10 Pro 10.0.17134 Build 17134
 - Processor: Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+- Python 3.7.1
 
 |Package     |Version|
 |------------|-------|
